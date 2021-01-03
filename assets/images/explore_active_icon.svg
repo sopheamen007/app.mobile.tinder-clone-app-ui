@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20.061" height="23.841" viewBox="0 0 20.061 23.841">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.5" x2="1.38" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#fc3973"/>
+      <stop offset="0.488" stop-color="#fd5f60"/>
+      <stop offset="0.68" stop-color="#fc416f"/>
+      <stop offset="1" stop-color="#fd5f60"/>
+    </linearGradient>
+  </defs>
+  <path id="Tinder" d="M51.762.03a.348.348,0,0,0-.489.336c.007.14.013.281.013.388a8.9,8.9,0,0,1-5.367,8.17h0a6.157,6.157,0,0,1-.753-2.89.348.348,0,0,0-.554-.258A10.031,10.031,0,1,0,60.648,13.81v-.1A14.974,14.974,0,0,0,51.762.03Z" transform="translate(-40.587 0)" fill="url(#linear-gradient)"/>
+</svg>
