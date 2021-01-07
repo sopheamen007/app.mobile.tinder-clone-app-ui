@@ -1,4 +1,10 @@
-# tinder_clone
+# Tinder Clone App UI
+
+- [Support me on Patreon](https://www.patreon.com/sopheamenvan?fan_landing=true)
+- [Watch on youtube Part I](https://youtu.be/jCLsBzocCM4)
+- [Watch on youtube Part II](https://youtu.be/4SjNRfCam7Q)
+
+![App UI](https://user-images.githubusercontent.com/16510597/103899516-18695f80-5129-11eb-8ba1-4a41e089ec46.jpg)
 
 A new Flutter project.
 
