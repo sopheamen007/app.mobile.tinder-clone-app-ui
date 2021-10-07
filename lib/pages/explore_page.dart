@@ -4,6 +4,7 @@ import 'package:flutter_tindercard/flutter_tindercard.dart';
 import 'package:tinder_clone/data/explore_json.dart';
 import 'package:tinder_clone/data/icons.dart';
 import 'package:tinder_clone/theme/colors.dart';
+import 'package:tinder_clone/data/pages_json.dart';
 
 class ExplorePage extends StatefulWidget {
   @override
@@ -15,7 +16,9 @@ class _ExplorePageState extends State<ExplorePage>
   CardController controller;
 
   List itemsTemp = [];
+  List pagesList = [];
   int itemLength = 0;
+  int pageLength = 0;
   @override
   void initState() {
     // TODO: implement initState
@@ -23,6 +26,8 @@ class _ExplorePageState extends State<ExplorePage>
     setState(() {
       itemsTemp = explore_json;
       itemLength = explore_json.length;
+      pagesList = pages_json;
+      pageLength = pages_json.length;
     });
   }
 
@@ -31,6 +36,10 @@ class _ExplorePageState extends State<ExplorePage>
     return Scaffold(
       backgroundColor: white,
       body: getBody(),
+      // body: Image.network(
+      //     'https://storage.googleapis.com/scrapbox-file-distribute/612abcd913c7db001d7341e4/0efe6ce60629950084ab21b2ee104666?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=file-upload%40scrapbox-server.iam.gserviceaccount.com%2F20211007%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20211007T070051Z&X-Goog-Expires=300&X-Goog-SignedHeaders=host&X-Goog-Signature=9b011422d9a56616335437b7568225b2a72c5efede366df3e6e54ffefa92ea5aa4b56a1823505c230d4fd821008a47d48accc2bcf19ba94a5668b24d43da075b7949156f036b91f7dfcd06a287bd4e1f8a5ac41afc27fcc6e39656850552131163ef57e01f217d848d6682c8af6cdf72a6ede5e53397f895acc00130120b90ff4e099a16e1c88b49ac0f006dfab58bb85c6851053a465943dc215e92b226cbe1a6279853786700ef21707795770fecb1423040577ae391ca1cda4e016274258a9ed418781f7da3406ce5f7767788fd84611ece3702a978fc47fd5866af3b88d914674ee2d5ffab8cab877988b198cb708f8ce308a667768d80e184d7c6af85ef',
+      //     width: 200,
+      //     height: 300),
       bottomSheet: getBottomSheet(),
     );
   }
@@ -43,7 +52,7 @@ class _ExplorePageState extends State<ExplorePage>
       child: Container(
         height: size.height,
         child: TinderSwapCard(
-          totalNum: itemLength,
+          totalNum: pageLength,
           maxWidth: MediaQuery.of(context).size.width,
           maxHeight: MediaQuery.of(context).size.height * 0.75,
           minWidth: MediaQuery.of(context).size.width * 0.75,
@@ -53,7 +62,7 @@ class _ExplorePageState extends State<ExplorePage>
                 borderRadius: BorderRadius.circular(10),
                 boxShadow: [
                   BoxShadow(
-                      color: grey.withOpacity(0.3),
+                      // color: grey.withOpacity(0.3),
                       blurRadius: 5,
                       spreadRadius: 2),
                 ]),
@@ -64,11 +73,8 @@ class _ExplorePageState extends State<ExplorePage>
                   Container(
                     width: size.width,
                     height: size.height,
-                    decoration: BoxDecoration(
-                      image: DecorationImage(
-                          image: AssetImage(itemsTemp[index]['img']),
-                          fit: BoxFit.cover),
-                    ),
+                    // child: Image.network(pagesList[index]['image']),
+                    child: Image.asset("assets/images/tree.jpg"),
                   ),
                   Container(
                     width: size.width,
@@ -96,7 +102,7 @@ class _ExplorePageState extends State<ExplorePage>
                                     Row(
                                       children: [
                                         Text(
-                                          itemsTemp[index]['name'],
+                                          pagesList[index]['title'],
                                           style: TextStyle(
                                               color: white,
                                               fontSize: 24,
@@ -106,7 +112,7 @@ class _ExplorePageState extends State<ExplorePage>
                                           width: 10,
                                         ),
                                         Text(
-                                          itemsTemp[index]['age'],
+                                          pagesList[index]["views"],
                                           style: TextStyle(
                                             color: white,
                                             fontSize: 22,
@@ -141,62 +147,62 @@ class _ExplorePageState extends State<ExplorePage>
                                     SizedBox(
                                       height: 15,
                                     ),
-                                    Row(
-                                      children: List.generate(
-                                          itemsTemp[index]['likes'].length,
-                                          (indexLikes) {
-                                        if (indexLikes == 0) {
-                                          return Padding(
-                                            padding:
-                                                const EdgeInsets.only(right: 8),
-                                            child: Container(
-                                              decoration: BoxDecoration(
-                                                  border: Border.all(
-                                                      color: white, width: 2),
-                                                  borderRadius:
-                                                      BorderRadius.circular(30),
-                                                  color:
-                                                      white.withOpacity(0.4)),
-                                              child: Padding(
-                                                padding: const EdgeInsets.only(
-                                                    top: 3,
-                                                    bottom: 3,
-                                                    left: 10,
-                                                    right: 10),
-                                                child: Text(
-                                                  itemsTemp[index]['likes']
-                                                      [indexLikes],
-                                                  style:
-                                                      TextStyle(color: white),
-                                                ),
-                                              ),
-                                            ),
-                                          );
-                                        }
-                                        return Padding(
-                                          padding:
-                                              const EdgeInsets.only(right: 8),
-                                          child: Container(
-                                            decoration: BoxDecoration(
-                                                borderRadius:
-                                                    BorderRadius.circular(30),
-                                                color: white.withOpacity(0.2)),
-                                            child: Padding(
-                                              padding: const EdgeInsets.only(
-                                                  top: 3,
-                                                  bottom: 3,
-                                                  left: 10,
-                                                  right: 10),
-                                              child: Text(
-                                                itemsTemp[index]['likes']
-                                                    [indexLikes],
-                                                style: TextStyle(color: white),
-                                              ),
-                                            ),
-                                          ),
-                                        );
-                                      }),
-                                    )
+                                    // Row(
+                                    //   children: List.generate(
+                                    //       pagesList[index]['likes'].length,
+                                    //       (indexLikes) {
+                                    //     if (indexLikes == 0) {
+                                    //       return Padding(
+                                    //         padding:
+                                    //             const EdgeInsets.only(right: 8),
+                                    //         child: Container(
+                                    //           decoration: BoxDecoration(
+                                    //               border: Border.all(
+                                    //                   color: white, width: 2),
+                                    //               borderRadius:
+                                    //                   BorderRadius.circular(30),
+                                    //               color:
+                                    //                   white.withOpacity(0.4)),
+                                    //           child: Padding(
+                                    //             padding: const EdgeInsets.only(
+                                    //                 top: 3,
+                                    //                 bottom: 3,
+                                    //                 left: 10,
+                                    //                 right: 10),
+                                    //             child: Text(
+                                    //               pagesList[index]['likes']
+                                    //                   [indexLikes],
+                                    //               style:
+                                    //                   TextStyle(color: white),
+                                    //             ),
+                                    //           ),
+                                    //         ),
+                                    //       );
+                                    //     }
+                                    //     return Padding(
+                                    //       padding:
+                                    //           const EdgeInsets.only(right: 8),
+                                    //       child: Container(
+                                    //         decoration: BoxDecoration(
+                                    //             borderRadius:
+                                    //                 BorderRadius.circular(30),
+                                    //             color: white.withOpacity(0.2)),
+                                    //         child: Padding(
+                                    //           padding: const EdgeInsets.only(
+                                    //               top: 3,
+                                    //               bottom: 3,
+                                    //               left: 10,
+                                    //               right: 10),
+                                    //           child: Text(
+                                    //             pagesList[index]['likes']
+                                    //                 [indexLikes],
+                                    //             style: TextStyle(color: white),
+                                    //           ),
+                                    //         ),
+                                    //       ),
+                                    //     );
+                                    //   }),
+                                    // )
                                   ],
                                 ),
                               ),
@@ -230,13 +236,13 @@ class _ExplorePageState extends State<ExplorePage>
             } else if (align.x > 0) {
               //Card is RIGHT swiping
             }
-            // print(itemsTemp.length);
+            // print(pagesList.length);
           },
           swipeCompleteCallback: (CardSwipeOrientation orientation, int index) {
             /// Get orientation & index of swiped card!
-            if (index == (itemsTemp.length - 1)) {
+            if (index == (pagesList.length - 1)) {
               setState(() {
-                itemLength = itemsTemp.length - 1;
+                pageLength = pagesList.length - 1;
               });
             }
           },
