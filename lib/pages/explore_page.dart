@@ -79,10 +79,10 @@ class _ExplorePageState extends State<ExplorePage>
                           // image: NetworkImage(
                           //   "https://scrapbox.io/files/615c4de11f2553001d472de1.jpg",
                           // ),
-                          image: NetworkImage(pagesList[index]["image"]),
-                          // image: NetworkImage(
-                          //   "https://1.bp.blogspot.com/-jlZlCg-8FAM/Xub_u8HTD1I/AAAAAAABZis/ZhUI05AZBEQpVinedZ6Xy-eIucmNuY2SQCNcBGAsYHQ/s1600/pose_pien_uruuru_man.png",
-                          // ),
+                          // image: NetworkImage(pagesList[index]["image"]),
+                          image: NetworkImage(
+                            "https://1.bp.blogspot.com/-jlZlCg-8FAM/Xub_u8HTD1I/AAAAAAABZis/ZhUI05AZBEQpVinedZ6Xy-eIucmNuY2SQCNcBGAsYHQ/s1600/pose_pien_uruuru_man.png",
+                          ),
                           fit: BoxFit.cover),
                     ),
                   ),
