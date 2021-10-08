@@ -35,11 +35,11 @@ class _ExplorePageState extends State<ExplorePage>
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: white,
+      // body: Image.asset("assets/images/tree.jpg"),
       body: getBody(),
       // body: Image.network(
-      //     'https://storage.googleapis.com/scrapbox-file-distribute/612abcd913c7db001d7341e4/0efe6ce60629950084ab21b2ee104666?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=file-upload%40scrapbox-server.iam.gserviceaccount.com%2F20211007%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20211007T070051Z&X-Goog-Expires=300&X-Goog-SignedHeaders=host&X-Goog-Signature=9b011422d9a56616335437b7568225b2a72c5efede366df3e6e54ffefa92ea5aa4b56a1823505c230d4fd821008a47d48accc2bcf19ba94a5668b24d43da075b7949156f036b91f7dfcd06a287bd4e1f8a5ac41afc27fcc6e39656850552131163ef57e01f217d848d6682c8af6cdf72a6ede5e53397f895acc00130120b90ff4e099a16e1c88b49ac0f006dfab58bb85c6851053a465943dc215e92b226cbe1a6279853786700ef21707795770fecb1423040577ae391ca1cda4e016274258a9ed418781f7da3406ce5f7767788fd84611ece3702a978fc47fd5866af3b88d914674ee2d5ffab8cab877988b198cb708f8ce308a667768d80e184d7c6af85ef',
-      //     width: 200,
-      //     height: 300),
+      //   'https://1.bp.blogspot.com/-jlZlCg-8FAM/Xub_u8HTD1I/AAAAAAABZis/ZhUI05AZBEQpVinedZ6Xy-eIucmNuY2SQCNcBGAsYHQ/s1600/pose_pien_uruuru_man.png',
+      // ),
       bottomSheet: getBottomSheet(),
     );
   }
@@ -73,8 +73,18 @@ class _ExplorePageState extends State<ExplorePage>
                   Container(
                     width: size.width,
                     height: size.height,
-                    // child: Image.network(pagesList[index]['image']),
-                    child: Image.asset("assets/images/tree.jpg"),
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                          // image: AssetImage(itemsTemp[index]['img']),
+                          // image: NetworkImage(
+                          //   "https://scrapbox.io/files/615c4de11f2553001d472de1.jpg",
+                          // ),
+                          image: NetworkImage(pagesList[index]["image"]),
+                          // image: NetworkImage(
+                          //   "https://1.bp.blogspot.com/-jlZlCg-8FAM/Xub_u8HTD1I/AAAAAAABZis/ZhUI05AZBEQpVinedZ6Xy-eIucmNuY2SQCNcBGAsYHQ/s1600/pose_pien_uruuru_man.png",
+                          // ),
+                          fit: BoxFit.cover),
+                    ),
                   ),
                   Container(
                     width: size.width,
